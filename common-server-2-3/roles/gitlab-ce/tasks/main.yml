@@ -18,6 +18,7 @@
 - name: Start gitlab-ce container
   docker_container:
     name: "gitlab-ce"
+    hostname: "external-gitlab"
     image: "{{ gitlab_image }}"
     volumes:
     - "gitlab-data:/var/opt/gitlab"
