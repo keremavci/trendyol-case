@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: external-gitlab
+ namespace: gitlab
+spec:
+ ports:
+ - port: 80
+   targetPort: 8080
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+ name: external-gitlab
+ namespace: gitlab
+subsets:
+ - addresses:
+     - ip: 192.168.0.33
+   ports:
+     - port: 8080
