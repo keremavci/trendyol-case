@@ -1,0 +1,33 @@
+---
+# tasks file for prometheus
+- name: Create prometheus volume
+  docker_volume:
+    name: promethues-data
+    driver: local
+
+- name: Create a directory if it does not exist
+  file:
+    path: /srv/prometheus
+    state: directory
+    mode: '0755'
+
+- name: Add Prometheus Conf
+  template: src=prometheus.yml.j2 dest=/srv/prometheus/prometheus.yml force=yes
+
+- name: Start promethues container
+  docker_container:
+    name: "prometheus"
+    image: "{{ prometheus_image }}"
+    volumes:
+    - "/srv/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+    - "prometheus-data:/data/prometheus"
+    state: started
+    ports:
+      - "9090:9090"
+      - "9000:9000"
+    restart_policy: "unless-stopped"
+    memory: "{{ prometheus_memory_limit }}"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"

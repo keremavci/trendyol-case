@@ -152,7 +152,10 @@ controller:
   ## Node tolerations for server scheduling to nodes with taints
   ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
   ##
-  tolerations: []
+  tolerations:
+  - key: "node"
+    operator: "Equal"
+    value: "server1"
   #  - key: "key"
   #    operator: "Equal|Exists"
   #    value: "value"
@@ -480,7 +483,7 @@ defaultBackend:
   ## Node tolerations for server scheduling to nodes with taints
   ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
   ##
-  tolerations: []
+  #tolerations: []
   #  - key: "key"
   #    operator: "Equal|Exists"
   #    value: "value"
