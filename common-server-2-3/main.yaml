@@ -3,8 +3,7 @@
   roles:
     - docker
     - consul
-    - prometheus
-    - alertmanager 
+    - prometheus-alertmanager
 
 - hosts: server3
   roles:
