@@ -6,7 +6,7 @@ metadata:
 spec:
  ports:
  - port: 80
-   targetPort: 8080
+   targetPort: 80
 ---
 kind: Endpoints
 apiVersion: v1
@@ -17,4 +17,4 @@ subsets:
  - addresses:
      - ip: 192.168.0.33
    ports:
-     - port: 8080
+     - port: 80

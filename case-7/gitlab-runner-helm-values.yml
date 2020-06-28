@@ -22,7 +22,7 @@ gitlabUrl: http://external-gitlab
 ## be retrieved from your GitLab Instance.
 ## ref: https://docs.gitlab.com/ce/ci/runners/README.html
 ##
-runnerRegistrationToken: "rzjv8hAWb-8m4mDFuR6V"
+runnerRegistrationToken: "sepVs7t8HZyCrz12jEXm"
 
 ## The Runner Token for adding new Runners to the GitLab Server. This must
 ## be retrieved from your GitLab Instance. It is token of already registered runner.
